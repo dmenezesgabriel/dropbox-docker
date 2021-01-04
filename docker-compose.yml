@@ -1,0 +1,11 @@
+version: '3'
+services:
+  dropbox:
+    build:
+      context: .
+    volumes:
+      - "./sync:/usr/src/app/:z"
+      - "./test:/dropbox:z"
+    env_file:
+      - ./.env
+    command: python3 -u sync.py
